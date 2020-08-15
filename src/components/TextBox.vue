@@ -21,6 +21,12 @@ export default {
   components: {
     Button
   },
+  props: {
+    onPost: {
+      type: Function,
+      required: true
+    }
+  },
   data() {
     return {
       body: ''
@@ -28,7 +34,22 @@ export default {
   },
   methods: {
     post() {
+      if (!this.body) {
+        alert('なにか入力してください');
+        return;
+      }
+
+      const newMessage = this.createMessage();
+      this.onPost(newMessage);
+      this.body = '';
+
       console.log('post!!!!!')
+    },
+    createMessage() {
+      return {
+        date: new Date().toLocaleString(),
+        body: this.body
+      }
     }
   }
 }
