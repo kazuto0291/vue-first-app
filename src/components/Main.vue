@@ -2,16 +2,36 @@
   <main class="main-container">
     <TextBox />
     <div class="devider"></div>
+    <MessageList :messages="messages"/>
   </main>
 </template>
 
 <script>
-import TextBox from './TextBox'
+import TextBox from './TextBox';
+import MessageList from './MessageList';
 
 export default {
   components: {
-    TextBox
-  }
+    TextBox,
+    MessageList
+  },
+  data() {
+    return {
+      messages: [
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+        {date: 'aaaaaaa', body: 'bbbbbbbbb'},
+      ]
+    };
+  },
 }
 </script>
 
