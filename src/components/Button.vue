@@ -1,39 +1,41 @@
 <template>
   <div
     class="button"
-    @click="onClick($event, 'fugafuga')"
+    @click="onClick"
   >
-    <!-- {{ title }} -->
+  {{ title}}
   </div>
 </template>
 
 <script>
-// export default {
-//   props: {
-//     title: {
-//       type: String,
-//       required: true
-//     }
-//   }
-
-// }
+export default {
+  props: {
+    title: {
+      type: String,
+      default: 'ボタン'
+    },
+    onClick: {
+      type: Function,
+      required: true
+    }
+  }
+}
 </script>
 
-<style>
-  .button {
-    display: inline-block;
-    background: red;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    margin-right: 5px;
-  }
+<style scoped>
+.button {
+  display: inline-block;
+  background: red;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+.button:hover {
+  background: blue;
+}
 
-  .button:hover {
-    background: blue
-  }
-
-  .button:active {
-    background: green;
-  }
+.button:active {
+  background: greenyellow;
+}
 </style>

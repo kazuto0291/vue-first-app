@@ -1,12 +1,13 @@
 <template>
-  <input v-model="text">
+  <!-- <input v-model="value"> -->
+  <input v-model.number="value">
 </template>
 
 <script>
 export default {
   data() {
     return {
-      text: ''
+      value: ''
     }
   }
 }
