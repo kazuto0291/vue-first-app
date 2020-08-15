@@ -1,13 +1,22 @@
 <template>
-  <div class="button">
-    ボタン
+  <div
+    class="button"
+    @click="onClick($event, 'fugafuga')"
+  >
+    <!-- {{ title }} -->
   </div>
 </template>
 
 <script>
-export default {
+// export default {
+//   props: {
+//     title: {
+//       type: String,
+//       required: true
+//     }
+//   }
 
-}
+// }
 </script>
 
 <style>
