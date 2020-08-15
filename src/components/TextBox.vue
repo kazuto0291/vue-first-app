@@ -16,10 +16,12 @@
 
 <script>
 import Button from './Button';
+import MessageModel from '../models/Message';
 
 export default {
   components: {
-    Button
+    Button,
+
   },
   props: {
     onPost: {
@@ -33,24 +35,28 @@ export default {
     }
   },
   methods: {
-    post() {
-      if (!this.body) {
-        alert('なにか入力してください');
-        return;
+    async post() {
+      // if (!this.body) {
+      //   alert('なにか入力してください');
+      //   return;
+      // }
+
+      try {
+        const message = await MessageModel.save({
+          body: this.body
+        });
+        this.onPost(message);
+        this.body = '';
+      } catch (error) {
+        alert(error.message);
       }
-
-      const newMessage = this.createMessage();
-      this.onPost(newMessage);
-      this.body = '';
-
-      console.log('post!!!!!')
     },
-    createMessage() {
-      return {
-        date: new Date().toLocaleString(),
-        body: this.body
-      }
-    }
+    // createMessage() {
+    //   return {
+    //     date: new Date().toLocaleString(),
+    //     body: this.body
+    //   }
+    // }
   }
 }
 </script>

@@ -25,7 +25,17 @@ class Message {
 
     return model;
   }
+
+  static create(id, data) {
+    return new Message({
+      id,
+      body: data.body,
+      date: data.date.toDate().toLocaleString()
+    });
+  }
 }
+
+export default Message;
 
 // const m = new Message({
 //   id: 'abe',
