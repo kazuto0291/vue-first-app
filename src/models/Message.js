@@ -37,6 +37,7 @@ class Message {
 
 export default Message;
 
+
 // const m = new Message({
 //   id: 'abe',
 //   body: 'body',
