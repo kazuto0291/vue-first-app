@@ -1,10 +1,12 @@
 <template>
-  <div
+  <button
     class="button"
+    :class="{disabled: !clickable}"
     @click="onClick"
+    :disabled="!clickable"
   >
   {{ title}}
-  </div>
+  </button>
 </template>
 
 <script>
@@ -17,6 +19,10 @@ export default {
     onClick: {
       type: Function,
       required: true
+    },
+    clickable: {
+      type: Boolean,
+      default: true
     }
   }
 }
@@ -30,6 +36,7 @@ export default {
   color: white;
   padding: 10px;
   cursor: pointer;
+  border: 0;
 }
 .button:hover {
   background: blue;
@@ -37,5 +44,9 @@ export default {
 
 .button:active {
   background: greenyellow;
+}
+
+.disabled {
+  opacity: 0.3;
 }
 </style>
